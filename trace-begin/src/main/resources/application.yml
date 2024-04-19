@@ -1,3 +1,5 @@
 spring:
-    application:
-        name: trace-begin
+  application:
+    name: trace-begin
+logging:
+  config: classpath:logback-spring.xml
