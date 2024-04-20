@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 详见<a href="https://github.com/alibaba/transmittable-thread-local">transmittable-thread-local</a>, 懒得看了
+ * <a href="https://juejin.cn/post/7205777393453891644#heading-1">实现案例</a>
  */
 public class DistributedTracerDemo {
 
