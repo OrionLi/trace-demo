@@ -15,10 +15,7 @@ public final class ThreadMdcUtil {
     /**
      * 用于父线程向线程池中提交任务时，将自身MDC中的数据复制给子线程
      *
-     * @param callable
-     * @param context
-     * @param <T>
-     * @return
+     * @param context 上下文
      */
     public static <T> Callable<T> wrap(final Callable<T> callable, final Map<String, String> context) {
         return () -> {
@@ -52,9 +49,7 @@ public final class ThreadMdcUtil {
     /**
      * 用于父线程向线程池中提交任务时，将自身MDC中的数据复制给子线程
      *
-     * @param runnable
-     * @param context
-     * @return
+     * @param context 上下文
      */
     public static Runnable wrap(final Runnable runnable, final Map<String, String> context) {
         return () -> {

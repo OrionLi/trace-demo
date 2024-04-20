@@ -5,6 +5,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import org.slf4j.MDC;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author OrionLi
@@ -19,17 +20,17 @@ public final class MyThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
     }
 
     @Override
-    public void execute(Runnable task) {
+    public void execute(@Nonnull Runnable task) {
         super.execute(ThreadMdcUtil.wrap(task, MDC.getCopyOfContextMap()));
     }
 
     @Override
-    public <T> Future<T> submit(Callable<T> task) {
+    public <T> Future<T> submit(@Nonnull Callable<T> task) {
         return super.submit(ThreadMdcUtil.wrap(task, MDC.getCopyOfContextMap()));
     }
 
     @Override
-    public Future<?> submit(Runnable task) {
+    public Future<?> submit(@Nonnull Runnable task) {
         return super.submit(ThreadMdcUtil.wrap(task, MDC.getCopyOfContextMap()));
     }
 
